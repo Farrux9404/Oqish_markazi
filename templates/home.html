@@ -1,0 +1,43 @@
+
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<body>
+
+ <section id="team" class="team">
+  <div class="container">
+
+    <div class="section-title" data-aos="zoom-out">
+      <h2>O'qtuvchilarlar</h2>
+      <p>O'tuvchilarmiz</p>
+    </div>
+    <div class="row">
+    
+    {% for post in post_list %}
+  
+        <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+          <div class="member" data-aos="fade-up">
+            <div class="member-img">
+              <img src="{{post.image.url }}" class="img-fluid" alt="">
+              <div class="social">
+                <a href="{% url 'post' post.pk %}"><i class="bi bi-twitter"></i></a>
+                <a href="{% url 'post' post.pk %}"><i class="bi bi-facebook"></i></a>
+                <a href=""><i class="bi bi-instagram"></i></a>
+                <a href=""><i class="bi bi-linkedin"></i></a>
+               </div>
+              </div>
+             <div class="member-info">
+              <h4><a href="{% url 'post' post.pk %}">>{{ post.title }}</a></h4>
+              <span>{{ post.body | slice:":100" }}</span>
+            </div>
+          </div>
+         </div>
+
+
+      {% endfor %}
+
+    </section>    
+  </body>
+{% endblock content %}

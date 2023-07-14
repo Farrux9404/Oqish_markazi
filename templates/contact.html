@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block content %}
+<body>
+    <section id="contact" class="contact">
+        <div class="container">
+  
+          <div class="section-title" data-aos="zoom-out">
+            <h2>Bog'lanish</h2>
+            <p>Bizga</p>
+          </div>
+  
+          <div class="row mt-5">
+  
+            <div class="col-lg-4" data-aos="fade-right">
+              <div class="info">
+                <div class="address">
+                  <i class="bi bi-geo-alt"></i>
+                  <h4>Manzil:</h4>
+                  <p>Toshkent viloyati Yangiyo'l shahar Dunyo savdo markazi!</p>
+                </div>
+  
+                <div class="email">
+                  <i class="bi bi-envelope"></i>
+                  <h4>Email:</h4>
+                  <p>lifeschool@mail.com</p>
+                </div>
+  
+                <div class="phone">
+                  <i class="bi bi-phone"></i>
+                  <h4>Tel:</h4>
+                  <p>+1 5589 55488 55s</p>
+                </div>
+  
+              </div>
+  
+            </div>
+  
+            <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left">
+              <form action="/contact/" method="POST" role="form" class="php-email-form">
+                {% csrf_token %}
+                <div class="row">
+                  <div class="col-md-6 form-group">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Isim Familyaingiz" required>
+                  </div>
+                  <div class="col-md-6 form-group mt-3 mt-md-0">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Emailingiz" required>
+                  </div>
+                  <div class="col-md-6 form-group mt-3 mt-md-0">
+                    <input type="tel" class="form-control" name="tel" id="tel" placeholder="Tel nomer" required>
+                  </div>
+                </div>
+                <div class="form-group mt-3">
+                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Talangan fan" required>
+                </div>
+                <div class="my-3">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Your message has been sent. Thank you!</div>
+                </div>
+                <div class="text-center"><button type="submit">Ma'lumotni jo'natish</button></div>
+              </form>
+  
+            </div>
+  
+          </div>
+  
+        </div>
+      </section><!-- End Contact Section -->
+  
+</body>
+{% endblock content %}
